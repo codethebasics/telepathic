@@ -4,16 +4,20 @@ import br.com.codethebasics.telepathic.nyt.model.ArchiveResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@SpringBootTest
 class NytArchiveServiceTest {
 
+    @Autowired
     private NytArchiveService nytArchiveService;
 
     @BeforeEach
     void setUp() {
-        nytArchiveService = new NytArchiveService();
+
     }
 
     @DisplayName("Given a year/month, when get archive, then return archive response")

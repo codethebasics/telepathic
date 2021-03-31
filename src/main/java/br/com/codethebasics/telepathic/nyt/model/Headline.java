@@ -13,4 +13,22 @@ public class Headline {
     @JsonProperty("main")
     private String main;
 
+    @JsonProperty("kicker")
+    private String kicker;
+
+    @JsonProperty("content_kicker")
+    private String contentKicker;
+
+    @JsonProperty("print_headline")
+    private String printHeadline;
+
+    @JsonProperty("name")
+    private String name;
+
+    @JsonProperty("seo")
+    private String seo;
+
+    @JsonProperty("sub")
+    private String sub;
+
 }
