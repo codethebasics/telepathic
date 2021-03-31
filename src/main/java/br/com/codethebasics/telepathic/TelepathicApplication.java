@@ -9,5 +9,4 @@ public class TelepathicApplication {
     public static void main(String[] args) {
         SpringApplication.run(TelepathicApplication.class, args);
     }
-
 }
