@@ -20,7 +20,7 @@ public class NytArchiveService {
         String endpoint = nytRootUri
             + archiveUri + "/"
             + year + "/"
-            + month + ".json?api-key=svktDgBoIlbItbyL4fAPw4GQkHWnZYmy";
+            + month + ".json?api-key=";
 
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<ArchiveResponse> response = restTemplate.getForEntity(endpoint, ArchiveResponse.class);
