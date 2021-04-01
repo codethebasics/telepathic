@@ -21,12 +21,8 @@ public class TelepathicBot {
 
     private TelegramBot bot;
 
-    public TelepathicBot() {
-        initBot();
-    }
-
-    private void initBot() {
-        this.bot = new TelegramBot("1688657217:AAFRN6cxwaLKe2bjsRem-iUwSvPjySx3nw8");
+    public void initBot() {
+        this.bot = new TelegramBot(this.token);
     }
 
     /**
