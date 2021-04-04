@@ -1,28 +1,19 @@
 package br.com.codethebasics.telepathic.bot;
 
-import br.com.codethebasics.telepathic.bot.action.BotAction;
-import br.com.codethebasics.telepathic.bot.component.TelegramButton;
 import br.com.codethebasics.telepathic.bot.component.TelegramMessage;
 import br.com.codethebasics.telepathic.bot.menu.Menu;
 import br.com.codethebasics.telepathic.bot.menu.MenuService;
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.UpdatesListener;
 import com.pengrad.telegrambot.model.Update;
-import com.pengrad.telegrambot.model.request.InlineKeyboardButton;
-import com.pengrad.telegrambot.model.request.InlineKeyboardMarkup;
-import com.pengrad.telegrambot.model.request.Keyboard;
-import com.pengrad.telegrambot.model.request.KeyboardButton;
-import com.pengrad.telegrambot.request.SendMessage;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
 
 @Getter
 @Setter
@@ -107,15 +98,16 @@ public class TelepathicBot {
             this.menu = this.menuService.findById(MAIN_MENU_ID);
 
         StringBuilder builder = new StringBuilder();
-        builder.append(this.getMenu().getTitle())
-            .append("\n");
-
-        this.menu.getChildMenus()
-            .forEach(cm -> builder.append(cm.getId())
-                .append(" - ")
-                .append(cm.getTitle())
-                .append("\n"));
+        builder.append(TelepathicBot.displayMenu(this.getMenu()));
+        this.menu.getChildMenus().forEach(menu -> builder.append(displayMenu(menu)));
 
         return builder.toString();
+    }
+
+    private static String displayMenu(Menu menu) {
+        return menu.getId()
+            + " - "
+            + menu.getTitle()
+            + "\n";
     }
 }
